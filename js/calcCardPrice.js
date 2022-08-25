@@ -12,7 +12,8 @@ function calcCardPriceAndDelivery() {
     // Общая стоимость товаров
     let priceTotal = 0;
     let currentPrice;
-    let deliveryPrice = 250;
+    let deliveryPrice = 150;
+    let priceTotalWithDelivery = 0;
 
     // Обходим все блоки с ценами в корзине, т.е. перебир-м элементы внутри cardItems
     cardItems.forEach( (item) => {
@@ -27,15 +28,21 @@ function calcCardPriceAndDelivery() {
         priceTotal += currentPrice;
 
         // Некорректно работает просчет итоговой цены при уменьшении кол-ва ролов в корзине!
-        if (priceTotal >= 900) {
+        if (priceTotal >= 600) {
             return priceTotal;
-        } else if (priceTotal < 900) {
-            return priceTotal += deliveryPrice;
+        } else if (priceTotal < 600) {
+            priceTotalWithDelivery = priceTotal + deliveryPrice;
+            return priceTotalWithDelivery;
         }
     });
 
     // Отображаем цену на стр-це
-    totalPriceEl.innerText = priceTotal;
+    // totalPriceEl.innerText = priceTotal;
+    if (priceTotal >= 600) {
+        totalPriceEl.innerText = priceTotal;
+    } else if (priceTotal < 600) {
+        totalPriceEl.innerText = priceTotalWithDelivery;
+    }
 
     // Работа с отобр-м цены доставки: скрываем / показываем блок с стоим-ю доставки
     if (priceTotal > 0) {
@@ -46,15 +53,14 @@ function calcCardPriceAndDelivery() {
         cardDelivery.classList.add('none');
     }
 
-
-    // Указыв-м стоимость доставки, если цена более 900р. то доставка беспл-я
-    if (priceTotal >= 900) {
+    // Указыв-м стоимость доставки, если цена более 600р. то доставка беспл-я
+    if (priceTotal >= 600) {
         deliveryCost.classList.add('free');
         deliveryCost.innerText = 'бесплатно';
         // Соот. если менее 900р то платная
     } else {
         deliveryCost.classList.remove('free');
-        deliveryCost.innerText = '250 ₽';
+        deliveryCost.innerText = '150 ₴';
     }
 
 }

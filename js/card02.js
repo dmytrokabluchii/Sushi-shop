@@ -1,5 +1,5 @@
 // Добавление товара в корзину
-function showCards() {
+function showCardsInBucket() {
     // div внутри корзины, в котрый мы добав-м товары
     const cardWrapper = document.querySelector('.cart-wrapper');
     // Добавляем прослушку на всем окне при клике, т.е. отслеживаем клик на стр-це
@@ -28,7 +28,6 @@ function showCards() {
                 // ну и соот. наш счетчик
                 counter: card.querySelector('[data-counter]').innerText,
             };
-            
             // выше мы собрали все данные и можем размещать их в корзине 
             
             // провер-м есть ли такой товар в корзине, если он есть то не будем добав-ть его а просто увелич-м счетчик
@@ -73,13 +72,15 @@ function showCards() {
             // Отображ-е статуса корзины Пустая / Полная
             toggleCardStatus();
             // Пересчет общей стоимости товаров в корзине
-            calcCardPriceAndDelivery();
+            calcCardPriceAndDelivery();   
 
+            console.log(productInfo.title);
+            console.log(productInfo.counter);
+            return productInfo;
         }
     });
 }
-showCards();
-// export default showCards;
+showCardsInBucket();
 
 
 

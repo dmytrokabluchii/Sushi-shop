@@ -42,7 +42,7 @@ function renderProducts(productArray) {
                     <img class="product-img" src="img/roll/${item.imgSrc}" alt="">
                     <div class="card-body text-center">
                         <h4 class="item-title">${item.title}</h4>
-                        <p><small data-items-in-box class="text-muted">${item.itemsInBox} шт.</small></p>
+                        <p><small data-items-in-box class="text-muted">В одной порции: ${item.itemsInBox} шт.</small></p>
                         <div class="details-wrapper">
                             <!-- Счетчик -->
                             <div class="items counter-wrapper">
@@ -53,7 +53,7 @@ function renderProducts(productArray) {
                             <!-- // Счетчик -->
                             <div class="price">
                                 <div class="price__weight">${item.weight}г.</div>
-                                <div class="price__currency">${item.price} ₽</div>
+                                <div class="price__currency">${item.price} ₴</div>
                             </div>
                         </div>
                         <button data-cart type="button" class="btn btn-block btn-outline-warning">+ в корзину</button>
@@ -81,44 +81,6 @@ function renderProducts(productArray) {
 // await нужно испол-ть не только что-бы подождать, но и что-бы перед-ть резул-т метода json
 // т.е. что-бы получ-ть именно тот результат что возвр-т нам Promise и потом с этим резул-м работать,
 // поэтому достаем его так же через await
-
-// fetch()
-// Есть несколько способов делать сетевые запросы и получать информацию с сервера.
-// Метод fetch() Базовый синтаксис:
-// let promise = fetch(url, [options])
-// url – URL для отправки запроса.
-// options – дополнительные параметры: метод, заголовки и так далее.
-// Без options это простой GET-запрос, скачивающий содержимое по адресу url.
-// Браузер сразу же начинает запрос и возвращает промис, который внешний код использует для получения результата.
-//      Во-первых, promise выполняется с объектом встроенного класса Response в качестве результата, как только сервер 
-// пришлёт заголовки ответа. На этом этапе мы можем проверить статус HTTP-запроса и определить, выполнился ли он успешно, 
-// а также посмотреть заголовки, но пока без тела ответа.
-// Промис завершается с ошибкой, если fetch не смог выполнить HTTP-запрос, например при ошибке сети или если нет такого сайта. 
-// HTTP-статусы 404 и 500 не являются ошибкой. Мы можем увидеть HTTP-статус в свойствах ответа:
-// status – код статуса HTTP-запроса, например 200.
-// ok – логическое значение: будет true, если код HTTP-статуса в диапазоне 200-299.
-// Например:
-// let response = await fetch(url);
-// if (response.ok) { // если HTTP-статус в диапазоне 200-299
-//    получаем тело ответа (см. про этот метод ниже)
-//   let json = await response.json();
-// } else {
-//   alert("Ошибка HTTP: " + response.status);
-// }
-//      Во-вторых, для получения тела ответа нам нужно использовать дополнительный вызов метода.
-// Response предоставляет несколько методов, основанных на промисах, для доступа к телу ответа в различных форматах:
-// response.text() – читает ответ и возвращает как обычный текст,
-// response.json() – декодирует ответ в формате JSON,
-// response.formData() – возвращает ответ как объект FormData (разберём его в следующей главе),
-// response.blob() – возвращает объект как Blob (бинарные данные с типом),
-// response.arrayBuffer() – возвращает ответ как ArrayBuffer (низкоуровневое представление бинарных данных),
-// помимо этого, response.body – это объект ReadableStream, с помощью которого можно считывать тело запроса по частям. 
-// Мы рассмотрим и такой пример несколько позже.
-// Например, получим JSON-объект с последними коммитами из репозитория на GitHub:
-// let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
-// let response = await fetch(url);
-// let commits = await response.json(); // читаем ответ в формате JSON
-// alert(commits[0].author.login);
 
 // json()
 // для получения тела ответа нам нужно использовать дополнительный вызов метода.

@@ -50,13 +50,13 @@
 						<div class="cart-total">
 							<p data-cart-delivery class="none">
 								<span class="h5">Доставка:</span> 
-								<span class="delivery-cost">250 ₽</span> 
+								<span class="delivery-cost">150 ₴</span> 
 								<br>
-								<span class="small text-info">Бесплатно при заказе от 900 ₽</span>
+								<span class="small text-info">Бесплатно при заказе от 600 ₴</span>
 							</p>
 							<p><span class="h5">Итого:</span> 
 								<span class="total-price">0</span> 
-								<span class="rouble">₽</span>
+								<span class="rouble">₴</span>
 							</p>
 						</div>
 						<!-- // Стоимость заказа -->
@@ -68,7 +68,7 @@
 						<h5 class="card-title">Оформить заказ</h5>
 						<form class="form-order" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Ваш номер телефона">
+								<input type="text" class="form-control phone-number" id="form_phone" placeholder="Ваш номер телефона">
 							</div>
 							<button type="submit" class="btn btn-primary btn-order">Заказать</button>
 						</form>
@@ -87,15 +87,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="./libs/sweetalert2/sweetalert2.all.min.js"></script>
 	<!-- На 1-м месте т.к. тут находятся карточки с товаром -->
-	<!-- toggleCardStatus.js обязат-но подключ-м одной из первых, чтобы фун-я бала считана 1-й -->
-	<script src="./js/toggleCardStatus.js"></script>
 	<script src="./js/renderProducts.js"></script>
 	<script src="./js/calcCardPrice.js"></script>
-	
+	<!-- toggleCardStatus.js обязат-но подключ-м одной из первых, чтобы фун-я бала считана 1-й -->
+	<script src="./js/toggleCardStatus.js"></script>
+	<!-- <script src="./js/counter01.js"></script> -->
 	<script src="./js/counter02.js"></script>
 	<script src="./js/card02.js"></script>
-	<!-- <script src="./js/sendform.js"></script> -->
-
+	<script src="./js/sendform.js"></script>
 
 
 </body>

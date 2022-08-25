@@ -1,10 +1,10 @@
 // import showCards from './card02.js';
-const phoneInput = document.querySelectorAll('.form-control'),
+const phoneInput = document.querySelector('.phone-number'),
       BOT_TOKEN = '5324396066:AAFDhE5HZ4_mI54HC4OmzWCfjxawduNh8S8',
       CHAT_ID = '-1001758890997';
 
 function validatePhone() {
-    [].forEach.call(phoneInput, function(input) {
+    [].forEach.call(document.querySelectorAll('#form_phone'), function(input) {
         let keyCode;
         function mask(event) {
         event.keyCode && (keyCode = event.keyCode);
@@ -72,16 +72,18 @@ function showError() {
     });
 }
 
+// const title = document.getElementsByClassName('cart-item__title').innerText;
+
 // берем формы и под каждую из них подвяз-м фун-ю postData, она и будет обработ-м события при отправке
-document.querySelectorAll('.form-order').forEach(item => { 
-    postData(item); 
-});
+// document.querySelectorAll('form').forEach(item => { 
+//     postData(item); 
+// });
 function postData(form) {
 // навеш-м событие 'submit' и оно будет сраб-ть каждый раз когда форма отправ-ся
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        let text = encodeURI(`Order client\n Name order: ${productInfo.title};\nDelivery: ${deliveryCost};\nTotal price order: ${totalPriceEl};\nPhone: ${phoneInput.value};`);
-
+        // let text = encodeURI(`Suchi Shop\Order client\nName order: ${productInfo.title};\nDelivery: ${deliveryCost};\nTotal price order: ${totalPriceEl};\nPhone: ${phoneInput.value};`);
+        let text = encodeURI(`Suchi Shop\nOrder client\nName order: ;\nPhone: ${phoneInput.value};`);
         if (phoneInput.value !== '') { 
         axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=` + 
         text + '&parse_mode=html') 
@@ -101,6 +103,7 @@ function postData(form) {
         }
     });
 }
+postData();
 
 
 
