@@ -5,4 +5,4 @@
 link to example: 
 
 Single page landing
-Technologies used: HTML, SCSS , Pure Java Script, Telegram bot.
+Technologies used: HTML, SCSS , Pure Java Script, Telegram bot, Bootstrap.
