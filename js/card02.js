@@ -53,11 +53,11 @@ function showCardsInBucket() {
                                 <div class="cart-item__details">
                                     <div class="items items--small counter-wrapper">
                                         <div class="items__control" data-action="minus">-</div>
-                                        <div class="items__current" data-counter="">${productInfo.counter}</div>
+                                        <div class="items__current amount-products" data-counter="">${productInfo.counter}</div>
                                         <div class="items__control" data-action="plus">+</div>
                                     </div>
                                     <div class="price">
-                                        <div class="price__currency">${productInfo.price}</div>
+                                        <div class="price__currency price-portion">${productInfo.price}</div>
                                     </div>
                                 </div>
                             </div>
@@ -74,13 +74,15 @@ function showCardsInBucket() {
             // Пересчет общей стоимости товаров в корзине
             calcCardPriceAndDelivery();   
 
-            console.log(productInfo.title);
-            console.log(productInfo.counter);
+            // console.log(productInfo.title);
+            // console.log(productInfo.counter);
+            // console.log(productInfo.price);
             return productInfo;
         }
     });
 }
 showCardsInBucket();
+
 
 
 

@@ -1,7 +1,34 @@
-// import showCards from './card02.js';
 const phoneInput = document.querySelector('.phone-number'),
       BOT_TOKEN = '5324396066:AAFDhE5HZ4_mI54HC4OmzWCfjxawduNh8S8',
       CHAT_ID = '-1001758890997';
+
+function showSuccess() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your order send, we are connect with you soon!',
+        showConfirmButton: false,
+        timer: 5000,
+    });
+}
+function showInfoValidate() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: 'Enter your number phone!',
+        showConfirmButton: false,
+        timer: 4000
+    });
+}
+function showError() {
+    Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Server error!',
+        showConfirmButton: false,
+        timer: 3000
+    });
+}
 
 function validatePhone() {
     [].forEach.call(document.querySelectorAll('#form_phone'), function(input) {
@@ -44,66 +71,57 @@ function validatePhone() {
 }
 validatePhone();
 
-function showSuccess() {
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Your message send, we are connect with you soon!',
-        showConfirmButton: false,
-        timer: 5000,
-    });
-}
-function showInfoValidate() {
-    Swal.fire({
-        position: 'top-end',
-        icon: 'info',
-        title: 'Fill all field marked *!',
-        showConfirmButton: false,
-        timer: 4000
-    });
-}
-function showError() {
-    Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: 'Server error!',
-        showConfirmButton: false,
-        timer: 3000
-    });
-}
+const sendForm = document.querySelector('form');
+postData(sendForm); 
+// Якщо форм декілька на сайті
+// document.querySelectorAll('form').forEach(item => {postData(item);});
 
-// const title = document.getElementsByClassName('cart-item__title').innerText;
-
-// берем формы и под каждую из них подвяз-м фун-ю postData, она и будет обработ-м события при отправке
-// document.querySelectorAll('form').forEach(item => { 
-//     postData(item); 
-// });
 function postData(form) {
-// навеш-м событие 'submit' и оно будет сраб-ть каждый раз когда форма отправ-ся
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // let text = encodeURI(`Suchi Shop\Order client\nName order: ${productInfo.title};\nDelivery: ${deliveryCost};\nTotal price order: ${totalPriceEl};\nPhone: ${phoneInput.value};`);
-        let text = encodeURI(`Suchi Shop\nOrder client\nName order: ;\nPhone: ${phoneInput.value};`);
+        const titleProducts = document.querySelectorAll('.cart-item__title'),
+              amount = document.querySelectorAll('.amount-products'),
+              pricePortion = document.querySelectorAll('.price-portion'),
+              deliveryCost = document.querySelector('.delivery-cost').innerText,
+              totalPrice = document.querySelector('.total-price').innerText;   
+        // Array.from() - створює новий масив з масивоподібного об'єкта.
+        const allTitle = Array.from(titleProducts, (el) => el.innerText),
+              allAmount = Array.from(amount, (el) => el.innerText + 'шт.'),
+              allPricePortion  = Array.from(pricePortion, (el) => el.innerText + ' ');
+        // console.log(allTitle, allAmount, allPricePortion);
+        let text = encodeURI(`Suchi Shop\nOrder client:\nTitle order: ${allTitle};\nAmount portion: ${allAmount};\nPrice portion: ${allPricePortion};\nDelivery: ${deliveryCost};\nTotal price order: ${totalPrice} ₴;\nPhone: ${phoneInput.value};`);
         if (phoneInput.value !== '') { 
         axios.get(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=` + 
         text + '&parse_mode=html') 
         .then( () => {
-            // console.log(data.status);
             showSuccess();
         })
         .catch( () => { 
             showError(); 
         })
         .finally( () => {
-            // очищаем нашу форму после отправки методом reset()
+            // Очищаемо форму після відправки методом reset()
             form.reset();
         }); 
         } else {
-        showInfoValidate();
+            showInfoValidate();
         }
     });
 }
-postData();
 
 
-
+// Array.from() - створює новий масив з масивоподібного об'єкта.
+//      Синтаксис: 
+// Array.from( arrayLike[, mapFn[, thisArg ]])
+//      Параметри:
+// - arrayLike - масивоподібний об'єкт.
+// - mapFn - Необов'язковий параметр. Функція, що викликається для кожного елемента масиву.
+// - thisArg - Необов'язковий параметр. Значення, що використовується в якості this при виконанні функції mapFn.
+//      Опис:
+// from() метод обєкту Array який дозволяє створювати масиви з:
+// - масивоподібних об'єктів (об'єктів з властивістю length і елементами по індексним ключам);
+// - ітерируємих об'єктів (об'єктів, з яких ви можете дістати їх елементи, наприклад Map або Set).
+// Array.from() має необов'язковий параметр mapFn, який дозволяє вам виконувати функцію map для кожного елемента створюваного масиву 
+// (або його підкласу). Простіше кажучи, виклик Array.from(obj, mapFn, thisArg) еквівалентний ланцюжку Array.from(obj).map(mapFn, thisArg), 
+// за винятком того, що він не створює проміжного масиву. Це особливо важливо для деяких підкласів масиву, наприклад типизованих масивів, 
+// оскільки проміжний масив неминуче призведе до усічення значень, щоб вони підпали під відповідний тип.

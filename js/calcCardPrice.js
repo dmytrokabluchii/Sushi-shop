@@ -27,7 +27,6 @@ function calcCardPriceAndDelivery() {
         // считаем общую стоимость товаров в корзине
         priceTotal += currentPrice;
 
-        // Некорректно работает просчет итоговой цены при уменьшении кол-ва ролов в корзине!
         if (priceTotal >= 600) {
             return priceTotal;
         } else if (priceTotal < 600) {
@@ -62,6 +61,8 @@ function calcCardPriceAndDelivery() {
         deliveryCost.classList.remove('free');
         deliveryCost.innerText = '150 ₴';
     }
+    // console.log(totalPriceEl.innerText);
+    // console.log(deliveryCost.innerText);
 
 }
 
