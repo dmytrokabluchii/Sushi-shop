@@ -8,4 +8,4 @@
 link to example: https://dmytrokabluchii.github.io/Sushi-shop/
 
 Single page landing
-Technologies used: HTML, SCSS , Pure Java Script, Telegram bot, Bootstrap.
+Technologies used: HTML, SCSS , Pure Java Script, AXIOS, Telegram bot, Bootstrap.
