@@ -17,8 +17,13 @@
 	<header class="header">
 		<div class="container text-center">
 			<img src="img/logo/logo.svg" width="92" alt="Суши и пицца">
-			<div class="display-4">Доставка роллов</div>
-			<p class="lead">Оперативно и вкусно</p>
+			<h1 class="display-4 lng-headerTitle">Доставка роллов</h1>
+			<p class="lead lng-headerSubtitle">Оперативно и вкусно</p>
+		</div>
+		<div class="lang df container text-right">
+			<button value="ua" class="btn btn-dark" id="lang-ua">UA</button>
+			<button value="ru" class="active btn btn-dark" id="lang-ru">RU</button>
+			<button value="en" class="btn btn-dark" id="lang-en">EN</button>
 		</div>
 	</header>
 
@@ -38,9 +43,9 @@
 				<!-- Корзина -->
 				<div class="card mb-4">
 					<div class="card-body">
-						<h5 class="card-title">Ваш заказ</h5>
-						<div data-cart-empty class="alert alert-secondary" role="alert">
-							Корзина пуста
+						<h5 class="card-title lng-busketTitle">Ваш заказ</h5>
+						<div data-cart-empty class="alert alert-secondary lng-busketEmpty" role="alert">
+							Корзина пустая
 						</div>
 						<!-- cart-wrapper -->
 						<div class="cart-wrapper"></div>
@@ -49,12 +54,12 @@
 						<!-- Стоимость заказа -->
 						<div class="cart-total">
 							<p data-cart-delivery class="none">
-								<span class="h5">Доставка:</span> 
+								<span class="h5 lng-deliveryTitle">Доставка:</span> 
 								<span class="delivery-cost">150 ₴</span> 
 								<br>
-								<span class="small text-info">Бесплатно при заказе от 600 ₴</span>
+								<span class="small text-info lng-deliveryFree">Бесплатно при заказе от 600 ₴</span>
 							</p>
-							<p><span class="h5">Итого:</span> 
+							<p><span class="h5 lng-totalTitle">Итого:</span> 
 								<span class="total-price">0</span> 
 								<span class="rouble">₴</span>
 							</p>
@@ -65,12 +70,13 @@
 
 					<!-- Оформить заказ -->
 					<div id="order-form" class="card-body border-top">
-						<h5 class="card-title">Оформить заказ</h5>
+						<h5 class="card-title lng-checkoutTitle">Оформить заказ</h5>
 						<form class="form-order" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control phone-number" id="form_phone" placeholder="Ваш номер телефона">
+								<input type="text" class="form-control phone-number lng-phoneCustomer" id="form_phone" 
+								placeholder="Ваш номер телефона">
 							</div>
-							<button type="submit" class="btn btn-primary btn-order">Заказать</button>
+							<button type="submit" class="btn btn-primary btn-order lng-btnOrder">Заказать</button>
 						</form>
 					</div>
 					<!-- // Оформить заказ -->
@@ -91,7 +97,8 @@
 	<script src="./js/calcCardPrice.js"></script>
 	<!-- toggleCardStatus.js обязат-но подключ-м одной из первых, чтобы фун-я бала считана 1-й -->
 	<script src="./js/toggleCardStatus.js"></script>
-	<!-- <script src="./js/counter01.js"></script> -->
+	
+	<script src="./js/multilang.js"></script>
 	<script src="./js/counter02.js"></script>
 	<script src="./js/card02.js"></script>
 	<script src="./js/sendform.js"></script>

@@ -5,6 +5,7 @@
   <h3 align="center">Sushi shop</h3>
 </p>
 
+In Development 
 link to example: https://dmytrokabluchii.github.io/Sushi-shop/
 
 Single page landing

@@ -41,8 +41,8 @@ function renderProducts(productArray) {
                 <div class="card mb-4" data-id="${item.id}">
                     <img class="product-img" src="img/roll/${item.imgSrc}" alt="">
                     <div class="card-body text-center">
-                        <h4 class="item-title">${item.title}</h4>
-                        <p><small data-items-in-box class="text-muted">В одной порции: ${item.itemsInBox} шт.</small></p>
+                        <h4 class="item-title lng-cardsTitle">${item.title}</h4>
+                        <p><small data-items-in-box class="text-muted lng-amountInPortion">В одной порции: ${item.itemsInBox} шт.</small></p>
                         <div class="details-wrapper">
                             <!-- Счетчик -->
                             <div class="items counter-wrapper">
@@ -56,7 +56,8 @@ function renderProducts(productArray) {
                                 <div class="price__currency">${item.price} ₴</div>
                             </div>
                         </div>
-                        <button data-cart type="button" class="btn btn-block btn-outline-warning">+ в корзину</button>
+                        <button data-cart type="button" class="btn btn-block btn-outline-warning lng-addToBusket">
+                        + в корзину</button>
                     </div>
                 </div>
             </div>
