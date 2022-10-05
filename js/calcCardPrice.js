@@ -34,7 +34,6 @@ function calcCardPriceAndDelivery() {
             return priceTotalWithDelivery;
         }
     });
-
     // Отображаем цену на стр-це
     // totalPriceEl.innerText = priceTotal;
     if (priceTotal >= 600) {
@@ -42,7 +41,6 @@ function calcCardPriceAndDelivery() {
     } else if (priceTotal < 600) {
         totalPriceEl.innerText = priceTotalWithDelivery;
     }
-
     // Работа с отобр-м цены доставки: скрываем / показываем блок с стоим-ю доставки
     if (priceTotal > 0) {
         // удал-м класс т.к. изначально он скрыт
@@ -51,19 +49,15 @@ function calcCardPriceAndDelivery() {
     } else {
         cardDelivery.classList.add('none');
     }
-
     // Указыв-м стоимость доставки, если цена более 600р. то доставка беспл-я
     if (priceTotal >= 600) {
         deliveryCost.classList.add('free');
-        deliveryCost.innerText = 'бесплатно';
+        deliveryCost.innerText = 'Безкоштовно/Free';
         // Соот. если менее 900р то платная
     } else {
         deliveryCost.classList.remove('free');
         deliveryCost.innerText = '150 ₴';
     }
-    // console.log(totalPriceEl.innerText);
-    // console.log(deliveryCost.innerText);
-
 }
 
 

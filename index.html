@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<title>Магазин роллов</title>
+	<title>Магазин ролів</title>
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" href="libs/sweetalert2/sweetalert2.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
@@ -16,14 +17,20 @@
 
 	<header class="header">
 		<div class="container text-center">
-			<img src="img/logo/logo.svg" width="92" alt="Суши и пицца">
-			<h1 class="display-4 lng-headerTitle">Доставка роллов</h1>
-			<p class="lead lng-headerSubtitle">Оперативно и вкусно</p>
+			<img src="img/logo/logo2.svg" width="128" alt="Суші та піца">
+			<h1 class="display-4 lng-headerTitle">Доставка ролів</h1>
+			<p class="lead lng-headerSubtitle">Швидко та смачно</p>
 		</div>
-		<div class="lang df container text-right">
-			<button value="ua" class="btn btn-dark" id="lang-ua">UA</button>
-			<button value="ru" class="active btn btn-dark" id="lang-ru">RU</button>
-			<button value="en" class="btn btn-dark" id="lang-en">EN</button>
+		<div class="lang df container text-right" id="lang-wrapper">
+			<button value="ua" type="button" class="btn btn-dark active btn-lang" id="lang-ua"
+			aria-current="true">UA
+			</button>
+			<button value="ru" type="button" class="btn btn-dark btn-lang" id="lang-ru"
+			>RU
+			</button>
+			<button value="en" type="button" class="btn btn-dark btn-lang" id="lang-en"
+			>EN
+			</button>
 		</div>
 	</header>
 
@@ -43,9 +50,9 @@
 				<!-- Корзина -->
 				<div class="card mb-4">
 					<div class="card-body">
-						<h5 class="card-title lng-busketTitle">Ваш заказ</h5>
+						<h5 class="card-title lng-busketTitle">Ваше замовлення</h5>
 						<div data-cart-empty class="alert alert-secondary lng-busketEmpty" role="alert">
-							Корзина пустая
+							Кошик порожній
 						</div>
 						<!-- cart-wrapper -->
 						<div class="cart-wrapper"></div>
@@ -55,11 +62,11 @@
 						<div class="cart-total">
 							<p data-cart-delivery class="none">
 								<span class="h5 lng-deliveryTitle">Доставка:</span> 
-								<span class="delivery-cost">150 ₴</span> 
+								<span class="delivery-cost lng-deliveryInBusket">150 ₴</span> 
 								<br>
-								<span class="small text-info lng-deliveryFree">Бесплатно при заказе от 600 ₴</span>
+								<span class="small text-info lng-deliveryFree">Безкоштовно при замовленні від 600 ₴</span>
 							</p>
-							<p><span class="h5 lng-totalTitle">Итого:</span> 
+							<p><span class="h5 lng-totalTitle">Разом:</span> 
 								<span class="total-price">0</span> 
 								<span class="rouble">₴</span>
 							</p>
@@ -70,13 +77,13 @@
 
 					<!-- Оформить заказ -->
 					<div id="order-form" class="card-body border-top">
-						<h5 class="card-title lng-checkoutTitle">Оформить заказ</h5>
+						<h5 class="card-title lng-checkoutTitle">Оформити замовлення</h5>
 						<form class="form-order" method="post">
 							<div class="form-group">
 								<input type="text" class="form-control phone-number lng-phoneCustomer" id="form_phone" 
-								placeholder="Ваш номер телефона">
+								placeholder="Ваш номер телефону">
 							</div>
-							<button type="submit" class="btn btn-primary btn-order lng-btnOrder">Заказать</button>
+							<button type="submit" class="btn btn-primary btn-order lng-btnOrder">Замовити</button>
 						</form>
 					</div>
 					<!-- // Оформить заказ -->
@@ -90,6 +97,7 @@
 	</div>
 
 	<!-- Подключаем скрипты -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script> -->
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="./libs/sweetalert2/sweetalert2.all.min.js"></script>
 	<!-- На 1-м месте т.к. тут находятся карточки с товаром -->
@@ -97,7 +105,6 @@
 	<script src="./js/calcCardPrice.js"></script>
 	<!-- toggleCardStatus.js обязат-но подключ-м одной из первых, чтобы фун-я бала считана 1-й -->
 	<script src="./js/toggleCardStatus.js"></script>
-	
 	<script src="./js/multilang.js"></script>
 	<script src="./js/counter02.js"></script>
 	<script src="./js/card02.js"></script>

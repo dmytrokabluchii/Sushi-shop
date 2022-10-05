@@ -1,34 +1,42 @@
 [
     {
         "id": 1,
-        "title": "Калифорния хит ролл",
+        "imgSrc": "california-hit.jpg",
+        "title": "Каліфорнія хіт рол",
+        "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":180,
         "price": 105,
-        "imgSrc": "california-hit.jpg"
+        "buttonText": "до кошика"
     },
     {
         "id": 2,
-        "title": "Калифорния темпура",
+        "imgSrc": "california-tempura.jpg",
+        "title": "Каліфорнія Темпура",
+        "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":205,
         "price": 145,
-        "imgSrc": "california-tempura.jpg"
+        "buttonText": "до кошика"
     },
     {
         "id": 3,
-        "title": "Запеченый ролл «Калифорния»",
+        "imgSrc": "zapech-california.jpg",
+        "title": "Запечений рол «Каліфорнія»",
+        "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":182,
         "price": 130,
-        "imgSrc": "zapech-california.jpg"
+        "buttonText": "до кошика"
     },
     {
         "id": 4,
-        "title": "Филадельфия",
+        "imgSrc": "philadelphia.jpg",
+        "title": "Філадельфія рол",
+        "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":230,
         "price": 125,
-        "imgSrc": "philadelphia.jpg"
+        "buttonText": "до кошика"
     }
 ]
