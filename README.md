@@ -5,8 +5,7 @@
   <h3 align="center">Sushi shop</h3>
 </p>
 
-In Development 
 link to example: https://dmytrokabluchii.github.io/Sushi-shop/
 
-Single page landing
-Technologies used: HTML, SCSS , Pure Java Script, AXIOS, Telegram bot, Bootstrap.
+Single page. Send data-order to telegram.
+Technologies used: HTML, CSS, Pure Java Script, AJAX, JSON, Telegram bot, Bootstrap.
