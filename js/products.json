@@ -6,7 +6,7 @@
         "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":180,
-        "price": 105,
+        "price":105,
         "buttonText": "до кошика"
     },
     {
@@ -16,7 +16,7 @@
         "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":205,
-        "price": 145,
+        "price":145,
         "buttonText": "до кошика"
     },
     {
@@ -26,7 +26,7 @@
         "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":182,
-        "price": 130,
+        "price":130,
         "buttonText": "до кошика"
     },
     {
@@ -36,7 +36,7 @@
         "portionText": "В одній порції",
         "itemsInBox": 6,
         "weight":230,
-        "price": 125,
+        "price":125,
         "buttonText": "до кошика"
     }
 ]
